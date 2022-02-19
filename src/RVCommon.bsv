@@ -1,7 +1,7 @@
 `ifdef RV128
 typedef 128 XLEN;
 `elsif RV64
-typedef 64 XLEN
+typedef 64 XLEN;
 `else
 typedef 32 XLEN;
 `endif
