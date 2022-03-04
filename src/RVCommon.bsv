@@ -12,7 +12,6 @@ typedef Bit#(3) RVFunc3;  // Corresponds to the func3 instruction field.
 // RVALUOperator
 //
 typedef Bit#(10) RVALUOperator;
-
 // ALU Operators: These are decoded as the concat of func7 and func3
 RVALUOperator alu_ADD    = 10'b0000000_000;
 RVALUOperator alu_SLL    = 10'b0000000_001;
@@ -112,63 +111,55 @@ typedef enum {
 // RVLoadOperator(s)
 //
 typedef RVFunc3 RVLoadOperator;
-typedef enum {
-    LB  = 3'b000,
-    LH  = 3'b001,
-    LW  = 3'b010,
+RVLoadOperator load_LB  = 3'b000;
+RVLoadOperator load_LH  = 3'b001;
+RVLoadOperator load_LW  = 3'b010;
 `ifdef RV32
-    UNSUPPORTED_LOAD_OPERATOR_011 = 3'b011,
+RVLoadOperator load_UNSUPPORTED_011 = 3'b011;
 `elsif RV64
-    LD = 3'b011,
+RVLoadOperator load_LD = 3'b011;
 `endif
-    LBU = 3'b100,
-    LHU = 3'b101,
+RVLoadOperator load_LBU = 3'b100;
+RVLoadOperator load_LHU = 3'b101;
 `ifdef RV32
-    UNSUPPORTED_LOAD_OPERATOR_110 = 3'b110,
+RVLoadOperator load_UNSUPPORTED_110 = 3'b110;
 `elsif RV64
-    LWU = 3'b110,
+RVLoadOperator load_LWU = 3'b110;
 `endif
-    UNSUPPORTED_LOAD_OPERATOR_111 = 3'b111
-} RVLoadOperators deriving(Bits, Eq, FShow);
+RVLoadOperator load_UNSUPPORTED_111 = 3'b111;
 
 //
 // RVPrivilegeLevel
 //
-typedef enum {
-    PRIVILEGE_LEVEL_USER        = 2'b00,
-    PRIVILEGE_LEVEL_SUPERVISOR  = 2'b01,
-    PRIVILEGE_LEVEL_HYPERVISOR  = 2'b10,
-    PRIVILEGE_LEVEL_MACHINE     = 2'b11
-} RVPrivilegeLevel deriving(Bits, Eq, FShow);
+typedef Bit#(2) RVPrivilegeLevel;
+RVPrivilegeLevel priv_USER        = 2'b00;
+RVPrivilegeLevel priv_SUPERVISOR  = 2'b01;
+RVPrivilegeLevel priv_HYPERVISOR  = 2'b10;
+RVPrivilegeLevel priv_MACHINE     = 2'b11;
 
 //
 // RVStoreOoperator(s)
 //
 typedef RVFunc3 RVStoreOperator;
-typedef enum {
-    SB  = 3'b000,
-    SH  = 3'b001,
-    SW  = 3'b010,
+RVStoreOperator store_SB  = 3'b000;
+RVStoreOperator store_SH  = 3'b001;
+RVStoreOperator store_SW  = 3'b010;
 `ifdef RV32
-    UNSUPPORTED_STORE_OPERATOR_011 = 3'b011,
+RVStoreOperator store_UNSUPPORTED_011 = 3'b011;
 `elsif RV64
-    SD = 3'b011,
+RVStoreOperator store_SD = 3'b011;
 `endif
-    UNSUPPORTED_STORE_OPERATOR_100 = 3'b100,
-    UNSUPPORTED_STORE_OPERATOR_101 = 3'b101,
-    UNSUPPORTED_STORE_OPERATOR_110 = 3'b110,
-    UNSUPPORTED_STORE_OPERATOR_111 = 3'b111
-} RVStoreOperators deriving(Bits, Eq, FShow);
+RVStoreOperator store_UNSUPPORTED_100 = 3'b100;
+RVStoreOperator store_UNSUPPORTED_101 = 3'b101;
+RVStoreOperator store_UNSUPPORTED_110 = 3'b110;
+RVStoreOperator store_UNSUPPORTED_111 = 3'b111;
 
 //
 // RVSystemOperator(s)
 //
 typedef Bit#(3) RVSystemOperator;
-typedef enum {
-    ECALL,
-    EBREAK,
-    SRET,
-    MRET,
-    WFI,
-    UNSUPPORTED_SYSTEM_OPERATOR
-} RVSystemOperators deriving(Bits, Eq, FShow);
+RVSystemOperator sys_ECALL  = 3'b000;
+RVSystemOperator sys_EBREAK = 3'b001;
+RVSystemOperator sys_SRET   = 3'b010;
+RVSystemOperator sys_MRET   = 3'b011;
+RVSystemOperator sys_WFI    = 3'b100;
