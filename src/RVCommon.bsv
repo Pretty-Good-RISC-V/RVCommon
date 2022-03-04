@@ -36,14 +36,14 @@ RVALUOperator alu_SRA    = 10'b0100000_101;
 // RVBranchOperator(s)
 //
 typedef RVFunc3 RVBranchOperator;
-RVBranchOperator branch_BEQ  = 3'b000;
-RVBranchOperator branch_BNE  = 3'b001;
+RVBranchOperator branch_BEQ             = 3'b000;
+RVBranchOperator branch_BNE             = 3'b001;
 RVBranchOperator branch_UNSUPPORTED_010 = 3'b010;
 RVBranchOperator branch_UNSUPPORTED_011 = 3'b011;
-RVBranchOperator branch_BLT  = 3'b100;
-RVBranchOperator branch_BGE  = 3'b101;
-RVBranchOperator branch_BLTU = 3'b110;
-RVBranchOperator branch_BGEU = 3'b111;
+RVBranchOperator branch_BLT             = 3'b100;
+RVBranchOperator branch_BGE             = 3'b101;
+RVBranchOperator branch_BLTU            = 3'b110;
+RVBranchOperator branch_BGEU            = 3'b111;
 
 //
 // RVCSRIndex
@@ -137,34 +137,34 @@ RVCSRIndexOffset csr_IP        = 8'h44;      // Interrupt Pending
 //
 typedef RVFunc3 RVCSROperator;
 RVCSROperator csr_UNSUPPORTED_000 = 3'b000;
-RVCSROperator csr_CSRRW  = 3'b001;
-RVCSROperator csr_CSRRS  = 3'b010;
-RVCSROperator csr_CSRRC  = 3'b011;
+RVCSROperator csr_CSRRW           = 3'b001;
+RVCSROperator csr_CSRRS           = 3'b010;
+RVCSROperator csr_CSRRC           = 3'b011;
 RVCSROperator csr_UNSUPPORTED_100 = 3'b100;
-RVCSROperator csr_CSRRWI = 3'b101;
-RVCSROperator csr_CSRRSI = 3'b110;
-RVCSROperator csr_CSRRCI = 3'b111;
+RVCSROperator csr_CSRRWI          = 3'b101;
+RVCSROperator csr_CSRRSI          = 3'b110;
+RVCSROperator csr_CSRRCI          = 3'b111;
 
 //
 // RVExceptionCause(s)
 //
 typedef Bit#(TSub#(XLEN, 1)) RVExceptionCause;
 RVExceptionCause exception_INSTRUCTION_ADDRESS_MISALIGNED = 0;
-RVExceptionCause exception_INSTRUCTION_ACCESS_FAULT = 1;
-RVExceptionCause exception_ILLEGAL_INSTRUCTION = 2;
-RVExceptionCause exception_BREAKPOINT = 3;
-RVExceptionCause exception_LOAD_ADDRESS_MISALIGNED = 4;
-RVExceptionCause exception_LOAD_ACCESS_FAULT = 5;
-RVExceptionCause exception_STORE_ADDRESS_MISALIGNED = 6;
-RVExceptionCause exception_STORE_ADDRESS_FAULT = 7;
-RVExceptionCause exception_ENVIRONMENT_CALL_FROM_U_MODE = 8;
-RVExceptionCause exception_ENVIRONMENT_CALL_FROM_S_MODE = 9;
-RVExceptionCause exception_RESERVED_10 = 10;
-RVExceptionCause exception_ENVIRONMENT_CALL_FROM_M_MODE = 11;
-RVExceptionCause exception_INSTRUCTION_PAGE_FAULT = 12;
-RVExceptionCause exception_LOAD_PAGE_FAULT = 13;
-RVExceptionCause exception_RESERVED_14 = 14;
-RVExceptionCause exception_STORE_PAGE_FAULT = 15;
+RVExceptionCause exception_INSTRUCTION_ACCESS_FAULT       = 1;
+RVExceptionCause exception_ILLEGAL_INSTRUCTION            = 2;
+RVExceptionCause exception_BREAKPOINT                     = 3;
+RVExceptionCause exception_LOAD_ADDRESS_MISALIGNED        = 4;
+RVExceptionCause exception_LOAD_ACCESS_FAULT              = 5;
+RVExceptionCause exception_STORE_ADDRESS_MISALIGNED       = 6;
+RVExceptionCause exception_STORE_ADDRESS_FAULT            = 7;
+RVExceptionCause exception_ENVIRONMENT_CALL_FROM_U_MODE   = 8;
+RVExceptionCause exception_ENVIRONMENT_CALL_FROM_S_MODE   = 9;
+RVExceptionCause exception_RESERVED_10                    = 10;
+RVExceptionCause exception_ENVIRONMENT_CALL_FROM_M_MODE   = 11;
+RVExceptionCause exception_INSTRUCTION_PAGE_FAULT         = 12;
+RVExceptionCause exception_LOAD_PAGE_FAULT                = 13;
+RVExceptionCause exception_RESERVED_14                    = 14;
+RVExceptionCause exception_STORE_PAGE_FAULT               = 15;
 
 //
 // RVISAExtension
@@ -200,30 +200,30 @@ RVISAExtension isaext_X = 26'h800000;      // Non-standard extensions present
 //
 typedef Bit#(TSub#(XLEN, 1)) RVInterruptCause;
 RVInterruptCause interrupt_SUPERVISOR_SOFTWARE_INTERRUPT = 1;
-RVInterruptCause interrupt_MACHINE_SOFTWARE_INTERRUPT = 3;
-RVInterruptCause interrupt_SUPERVISOR_TIMER_INTERRUPT = 5;
-RVInterruptCause interrupt_MACHINE_TIMER_INTERRUPT = 7;
+RVInterruptCause interrupt_MACHINE_SOFTWARE_INTERRUPT    = 3;
+RVInterruptCause interrupt_SUPERVISOR_TIMER_INTERRUPT    = 5;
+RVInterruptCause interrupt_MACHINE_TIMER_INTERRUPT       = 7;
 RVInterruptCause interrupt_SUPERVISOR_EXTERNAL_INTERRUPT = 9;
-RVInterruptCause interrupt_MACHINE_EXTERNAL_INTERRUPT = 11;
+RVInterruptCause interrupt_MACHINE_EXTERNAL_INTERRUPT    = 11;
 
 //
 // RVLoadOperator(s)
 //
 typedef RVFunc3 RVLoadOperator;
-RVLoadOperator load_LB  = 3'b000;
-RVLoadOperator load_LH  = 3'b001;
-RVLoadOperator load_LW  = 3'b010;
+RVLoadOperator load_LB              = 3'b000;
+RVLoadOperator load_LH              = 3'b001;
+RVLoadOperator load_LW              = 3'b010;
 `ifdef RV32
 RVLoadOperator load_UNSUPPORTED_011 = 3'b011;
 `elsif RV64
-RVLoadOperator load_LD = 3'b011;
+RVLoadOperator load_LD              = 3'b011;
 `endif
-RVLoadOperator load_LBU = 3'b100;
-RVLoadOperator load_LHU = 3'b101;
+RVLoadOperator load_LBU             = 3'b100;
+RVLoadOperator load_LHU             = 3'b101;
 `ifdef RV32
 RVLoadOperator load_UNSUPPORTED_110 = 3'b110;
 `elsif RV64
-RVLoadOperator load_LWU = 3'b110;
+RVLoadOperator load_LWU             = 3'b110;
 `endif
 RVLoadOperator load_UNSUPPORTED_111 = 3'b111;
 
