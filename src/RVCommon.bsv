@@ -9,32 +9,29 @@ typedef 32 XLEN;
 typedef Bit#(3) RVFunc3;  // Corresponds to the func3 instruction field.
 
 //
-// RVALUOperator(s)
+// RVALUOperator
 //
 typedef Bit#(10) RVALUOperator;
-typedef enum {  // NOTE: These are decoded as the concat of func7 and func3
-    ADD    = 10'b0000000000,
-    SLL    = 10'b0000000001,
-    SLT    = 10'b0000000010, 
-    SLTU   = 10'b0000000011, 
-    XOR    = 10'b0000000100,
-    SRL    = 10'b0000000101,
-    OR     = 10'b0000000110,
-    AND    = 10'b0000000111,
-`ifdef ISA_M
-    MUL    = 10'b0000001000,
-    MULH   = 10'b0000001001,
-    MULHSU = 10'b0000001010,
-    MULHU  = 10'b0000001011,
-    DIV    = 10'b0000001100,
-    DIVU   = 10'b0000001101,
-    REM    = 10'b0000001110,
-    REMU   = 10'b0000001111,
-`endif
-    SUB    = 10'b0100000000,
-    SRA    = 10'b0100000101,
-    UNSUPPORTED_ALU_OPERATOR = 10'b1111111111
-} RVALUOperators deriving(Bits, Eq, FShow);
+
+// ALU Operators: These are decoded as the concat of func7 and func3
+RVALUOperator ALU_ADD    = 10'b0000000_000;
+RVALUOperator ALU_SLL    = 10'b0000000_001;
+RVALUOperator ALU_SLT    = 10'b0000000_010;
+RVALUOperator ALU_SLTU   = 10'b0000000_011;
+RVALUOperator ALU_XOR    = 10'b0000000_100;
+RVALUOperator ALU_SRL    = 10'b0000000_101;
+RVALUOperator ALU_OR     = 10'b0000000_110;
+RVALUOperator ALU_AND    = 10'b0000000_111;
+RVALUOperator ALU_MUL    = 10'b0000001_000;
+RVALUOperator ALU_MULH   = 10'b0000001_001;
+RVALUOperator ALU_MULHSU = 10'b0000001_010;
+RVALUOperator ALU_MULHU  = 10'b0000001_011;
+RVALUOperator ALU_DIV    = 10'b0000001_100;
+RVALUOperator ALU_DIVU   = 10'b0000001_101;
+RVALUOperator ALU_REM    = 10'b0000001_110;
+RVALUOperator ALU_REMU   = 10'b0000001_111;
+RVALUOperator ALU_SUB    = 10'b0100000_000;
+RVALUOperator ALU_SRA    = 10'b0100000_101;
 
 //
 // RVBranchOperator(s)
