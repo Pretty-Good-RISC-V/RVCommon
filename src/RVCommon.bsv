@@ -37,31 +37,27 @@ RVALUOperator alu_SRA    = 10'b0100000_101;
 // RVBranchOperator(s)
 //
 typedef RVFunc3 RVBranchOperator;
-typedef enum {
-    BEQ  = 3'b000,
-    BNE  = 3'b001,
-    UNSUPPORTED_BRANCH_OPERATOR_010 = 3'b010,
-    UNSUPPORTED_BRANCH_OPERATOR_011 = 3'b011,
-    BLT  = 3'b100,
-    BGE  = 3'b101,
-    BLTU = 3'b110,
-    BGEU = 3'b111
-} RVBranchOperators deriving(Bits, Eq, FShow);
+RVBranchOperator branch_BEQ  = 3'b000;
+RVBranchOperator branch_BNE  = 3'b001;
+RVBranchOperator branch_UNSUPPORTED_010 = 3'b010;
+RVBranchOperator branch_UNSUPPORTED_011 = 3'b011;
+RVBranchOperator branch_BLT  = 3'b100;
+RVBranchOperator branch_BGE  = 3'b101;
+RVBranchOperator branch_BLTU = 3'b110;
+RVBranchOperator branch_BGEU = 3'b111;
 
 //
 // RVCSROperator(s)
 //
 typedef RVFunc3 RVCSROperator;
-typedef enum {
-    UNSUPPORTED_CSR_OPERATOR_000 = 3'b000,
-    CSRRW  = 3'b001,
-    CSRRS  = 3'b010,
-    CSRRC  = 3'b011,
-    UNSUPPORTED_CSR_OPERATOR_100 = 3'b100,
-    CSRRWI = 3'b101,
-    CSRRSI = 3'b110,
-    CSRRCI = 3'b111
-} RVCSROperators deriving(Bits, Eq, FShow);
+RVCSROperator csr_UNSUPPORTED_000 = 3'b000;
+RVCSROperator csr_CSRRW  = 3'b001;
+RVCSROperator csr_CSRRS  = 3'b010;
+RVCSROperator csr_CSRRC  = 3'b011;
+RVCSROperator csr_UNSUPPORTED_100 = 3'b100;
+RVCSROperator csr_CSRRWI = 3'b101;
+RVCSROperator csr_CSRRSI = 3'b110;
+RVCSROperator csr_CSRRCI = 3'b111;
 
 //
 // RVExceptionCause(s)
