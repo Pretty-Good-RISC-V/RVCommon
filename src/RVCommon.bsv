@@ -167,6 +167,35 @@ RVExceptionCause exception_RESERVED_14 = 14;
 RVExceptionCause exception_STORE_PAGE_FAULT = 15;
 
 //
+// RVISAExtension
+//
+typedef Bit#(24) RVISAExtension;
+RVISAExtension isaext_A = 'h000001;     // Atomic extension
+RVISAExtension isaext_B = 'h000002;     // Tentatively reserved for Bit-Manipulation extension
+RVISAExtension isaext_C = 'h000004;     // Compressed extension
+RVISAExtension isaext_D = 'h000008;     // Double-precision floating-point extension
+RVISAExtension isaext_E = 'h000010;     // RV32E base ISA
+RVISAExtension isaext_F = 'h000020;     // Single-precision floating-point extension
+RVISAExtension isaext_G = 'h000040;     // __ RESERVED __
+RVISAExtension isaext_H = 'h000080;     // Hypervisor extension
+RVISAExtension isaext_I = 'h000100;     // RV32I/64I/128I base ISA
+RVISAExtension isaext_J = 'h000200;     // Tentatively reserved for Dynamically Translated Languages extension
+RVISAExtension isaext_K = 'h000400;     // __ RESERVED __
+RVISAExtension isaext_L = 'h000800;     // __ RESERVED __
+RVISAExtension isaext_M = 'h001000;     // Integer Multiply/Divide extension
+RVISAExtension isaext_N = 'h002000;     // Tentatively reserved for User-Level Interrupts extension
+RVISAExtension isaext_O = 'h004000;     // __ RESERVED __
+RVISAExtension isaext_P = 'h008000;     // Tentatively reserved for Packed-SIMD extension
+RVISAExtension isaext_Q = 'h010000;     // Quad-precision floating-point extension
+RVISAExtension isaext_R = 'h020000;     // __ RESERVED __
+RVISAExtension isaext_S = 'h040000;     // Supervisor mode implemented
+RVISAExtension isaext_T = 'h080000;     // __ RESERVED __
+RVISAExtension isaext_U = 'h100000;     // User mode implemented
+RVISAExtension isaext_V = 'h200000;     // Tentatively reserved for Vector extension
+RVISAExtension isaext_W = 'h400000;     // __ RESERVED __
+RVISAExtension isaext_X = 'h800000;      // Non-standard extensions present
+
+//
 // RVInterruptCause(s)
 //
 typedef Bit#(TSub#(XLEN, 1)) RVInterruptCause;
