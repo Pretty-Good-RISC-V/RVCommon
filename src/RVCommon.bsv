@@ -62,50 +62,33 @@ RVCSROperator csr_CSRRCI = 3'b111;
 // RVExceptionCause(s)
 //
 typedef Bit#(TSub#(XLEN, 1)) RVExceptionCause;
-typedef enum {
-    INSTRUCTION_ADDRESS_MISALIGNED = 0,
-    INSTRUCTION_ACCESS_FAULT = 1,
-    ILLEGAL_INSTRUCTION = 2,
-    BREAKPOINT = 3,
-    LOAD_ADDRESS_MISALIGNED = 4,
-    LOAD_ACCESS_FAULT = 5,
-    STORE_ADDRESS_MISALIGNED = 6,
-    STORE_ADDRESS_FAULT = 7,
-    ENVIRONMENT_CALL_FROM_U_MODE = 8,
-    ENVIRONMENT_CALL_FROM_S_MODE = 9,
-    // RESERVED = 10
-    ENVIRONMENT_CALL_FROM_M_MODE = 11,
-    INSTRUCTION_PAGE_FAULT = 12,
-    LOAD_PAGE_FAULT = 13,
-    // RESERVED = 14,
-    STORE_PAGE_FAULT = 15
-    // RESERVED = 16-23
-    // CUSTOM USE = 24-31
-    // RESERVED = 32-47
-    // CUSTOM USE = 48-63
-    // RESERVED >= 64
-} RVExceptionCauses deriving(Bits, Eq, FShow);
+RVExceptionCause exception_INSTRUCTION_ADDRESS_MISALIGNED = 0;
+RVExceptionCause exception_INSTRUCTION_ACCESS_FAULT = 1;
+RVExceptionCause exception_ILLEGAL_INSTRUCTION = 2;
+RVExceptionCause exception_BREAKPOINT = 3;
+RVExceptionCause exception_LOAD_ADDRESS_MISALIGNED = 4;
+RVExceptionCause exception_LOAD_ACCESS_FAULT = 5;
+RVExceptionCause exception_STORE_ADDRESS_MISALIGNED = 6;
+RVExceptionCause exception_STORE_ADDRESS_FAULT = 7;
+RVExceptionCause exception_ENVIRONMENT_CALL_FROM_U_MODE = 8;
+RVExceptionCause exception_ENVIRONMENT_CALL_FROM_S_MODE = 9;
+RVExceptionCause exception_RESERVED_10 = 10;
+RVExceptionCause exception_ENVIRONMENT_CALL_FROM_M_MODE = 11;
+RVExceptionCause exception_INSTRUCTION_PAGE_FAULT = 12;
+RVExceptionCause exception_LOAD_PAGE_FAULT = 13;
+RVExceptionCause exception_RESERVED_14 = 14;
+RVExceptionCause exception_STORE_PAGE_FAULT = 15;
 
 //
 // RVInterruptCause(s)
 //
 typedef Bit#(TSub#(XLEN, 1)) RVInterruptCause;
-typedef enum {
-    // RESERVED = 0
-    SUPERVISOR_SOFTWARE_INTERRUPT = 1,
-    // RESERVED = 2
-    MACHINE_SOFTWARE_INTERRUPT = 3,
-    // RESERVED = 4,
-    SUPERVISOR_TIMER_INTERRUPT = 5,
-    // RESERVED = 6
-    MACHINE_TIMER_INTERRUPT = 7,
-    // RESERVED = 8,
-    SUPERVISOR_EXTERNAL_INTERRUPT = 9,
-    // RESERVED = 10
-    MACHINE_EXTERNAL_INTERRUPT = 11
-    // RESERVED = 12-15
-    // PLATFORM RESERVED >= 16
-} RVInterruptCauses deriving(Bits, Eq, FShow);
+RVInterruptCause interrupt_SUPERVISOR_SOFTWARE_INTERRUPT = 1;
+RVInterruptCause interrupt_MACHINE_SOFTWARE_INTERRUPT = 3;
+RVInterruptCause interrupt_SUPERVISOR_TIMER_INTERRUPT = 5;
+RVInterruptCause interrupt_MACHINE_TIMER_INTERRUPT = 7;
+RVInterruptCause interrupt_SUPERVISOR_EXTERNAL_INTERRUPT = 9;
+RVInterruptCause interrupt_MACHINE_EXTERNAL_INTERRUPT = 11;
 
 //
 // RVLoadOperator(s)
