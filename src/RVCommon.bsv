@@ -46,6 +46,93 @@ RVBranchOperator branch_BLTU = 3'b110;
 RVBranchOperator branch_BGEU = 3'b111;
 
 //
+// RVCSRIndex
+//
+typedef Bit#(12) RVCSRIndex;
+// Supervisor Trap Setup
+RVCSRIndex csr_SSTATUS         = 12'h100;    // Supervisor Status Register (SRW)
+RVCSRIndex csr_SIE             = 12'h104;    // Supervisor Interrupt Enable Register (SRW)
+RVCSRIndex csr_STVEC           = 12'h105;    // Supervisor Trap-Handler base address (SRW)
+RVCSRIndex csr_SCOUNTEREN      = 12'h106;    // Supervisor Counter Enable Register (SRW)
+// Supervisor Configuration
+RVCSRIndex csr_SENVCFG         = 12'h10A;    // Supervisor environment configuration register (SRW)
+// Supervisor Trap Handling
+RVCSRIndex csr_SSCRATCH        = 12'h140;    // Scratch register for supervisor trap handlers (SRW)
+RVCSRIndex csr_SEPC            = 12'h141;    // Supervisor exception program counter (SRW)
+RVCSRIndex csr_SCAUSE          = 12'h142;    // Supervisor trap cause (SRW)
+RVCSRIndex csr_STVAL           = 12'h143;    // Supervisor bad address or instruction (SRW)
+RVCSRIndex csr_SIP             = 12'h144;    // Supervisor interrupt pending (SRW)
+// Supervisor Protection and Translation
+RVCSRIndex csr_SATP            = 12'h180;    // Supervisor address translation and protection (SRW)
+// Machine Trap Setup
+RVCSRIndex csr_MSTATUS         = 12'h300;    // Machine Status Register (MRW)
+RVCSRIndex csr_MISA            = 12'h301;    // Machine ISA and Extensions Register (MRW)
+RVCSRIndex csr_MEDELEG         = 12'h302;    // Machine Exception Delegation Register (MRW)
+RVCSRIndex csr_MIDELEG         = 12'h303;    // Machine Interrupt Delegation Register (MRW)
+RVCSRIndex csr_MIE             = 12'h304;    // Machine Interrupt Enable Register (MRW)
+RVCSRIndex csr_MTVEC           = 12'h305;    // Machine Trap-Handler base address (MRW)
+RVCSRIndex csr_MCOUNTEREN      = 12'h306;    // Machine Counter Enable Register (MRW)
+`ifdef RV32
+RVCSRIndex csr_MSTATUSH        = 12'h310;    // Additional machine status register, RV32 only (MRW)
+`endif
+// Machine Trap Handling
+RVCSRIndex csr_MSCRATCH        = 12'h340;    // Scratch register for machine trap handlers (MRW)
+RVCSRIndex csr_MEPC            = 12'h341;    // Machine exception program counter (MRW)
+RVCSRIndex csr_MCAUSE          = 12'h342;    // Machine trap cause (MRW)
+RVCSRIndex csr_MTVAL           = 12'h343;    // Machine bad address or instruction (MRW)
+RVCSRIndex csr_MIP             = 12'h344;    // Machine interrupt pending (MRW)
+RVCSRIndex csr_MTINST          = 12'h34A;    // Machine trap instruction (transformed) (MRW)
+RVCSRIndex csr_MTVAL2          = 12'h34B;    // Machine bad guest physical address (MRW)
+// Machine Memory Protection
+RVCSRIndex csr_PMPCFG0         = 12'h3A0;    // Physical memory protection configuration (MRW)
+RVCSRIndex csr_PMPCFG15        = 12'h3AF; 
+RVCSRIndex csr_PMPADDR0        = 12'h3B0;    // Physical memory protection address register (MRW)
+RVCSRIndex csr_PMPADDR63       = 12'h3EF;
+// Machine Counters/Timers
+RVCSRIndex csr_MCYCLE          = 12'hB00;    // Cycle counter for RDCYCLE instruction (MRW)
+RVCSRIndex csr_MINSTRET        = 12'hB02;    // Machine instructions-retired counter (MRW)
+RVCSRIndex csr_MHPMCOUNTER3    = 12'hB03;    // Machine performance-monitoring counter (MRW)
+RVCSRIndex csr_MHPMCOUNTER4    = 12'hB04;    // Machine performance-monitoring counter (MRW)
+RVCSRIndex csr_MHPMCOUNTER5    = 12'hB05;    // Machine performance-monitoring counter (MRW)
+RVCSRIndex csr_MHPMCOUNTER6    = 12'hB06;    // Machine performance-monitoring counter (MRW)
+RVCSRIndex csr_MHPMCOUNTER7    = 12'hB07;    // Machine performance-monitoring counter (MRW)
+RVCSRIndex csr_MHPMCOUNTER8    = 12'hB08;    // Machine performance-monitoring counter (MRW)
+RVCSRIndex csr_MHPMCOUNTER9    = 12'hB09;    // Machine performance-monitoring counter (MRW)
+`ifdef RV32
+RVCSRIndex csr_MCYCLEH         = 12'hB80;    // Upper 32 bits of mcycle, RV32I only (MRW)
+RVCSRIndex csr_MINSTRETH       = 12'hB82;    // Upper 32 bits of minstret, RV32I only (MRW)    
+RVCSRIndex csr_MHPMCOUNTER3H   = 12'hB83;    // Machine performance-monitoring counter (upper 32 bits) (MRW)
+RVCSRIndex csr_MHPMCOUNTER4H   = 12'hB84;    // Machine performance-monitoring counter (upper 32 bits) (MRW)
+RVCSRIndex csr_MHPMCOUNTER5H   = 12'hB85;    // Machine performance-monitoring counter (upper 32 bits) (MRW)
+RVCSRIndex csr_MHPMCOUNTER6H   = 12'hB86;    // Machine performance-monitoring counter (upper 32 bits) (MRW)
+RVCSRIndex csr_MHPMCOUNTER7H   = 12'hB87;    // Machine performance-monitoring counter (upper 32 bits) (MRW)
+RVCSRIndex csr_MHPMCOUNTER8H   = 12'hB88;    // Machine performance-monitoring counter (upper 32 bits) (MRW)
+RVCSRIndex csr_MHPMCOUNTER9H   = 12'hB89;    // Machine performance-monitoring counter (upper 32 bits) (MRW)
+`endif
+RVCSRIndex csr_CYCLE           = 12'hC00;    // Read only mirror of MCYCLE
+// Machine Information Registers
+RVCSRIndex csr_MVENDORID       = 12'hF11;    // Vendor ID (MRO)
+RVCSRIndex csr_MARCHID         = 12'hF12;    // Architecture ID (MRO)
+RVCSRIndex csr_MIMPID          = 12'hF13;    // Implementation ID (MRO)
+RVCSRIndex csr_MHARTID         = 12'hF14;    // Hardware thread ID (MRO)
+RVCSRIndex csr_MCONFIGPTR      = 12'hF15;    // Pointer to configuration data structure (MRO)
+
+typedef Bit#(8) RVCSRIndexOffset;
+// Trap Setup
+RVCSRIndexOffset csr_STATUS    = 8'h00;      // Status
+RVCSRIndexOffset csr_EDELEG    = 8'h02;      // Exception Delegation
+RVCSRIndexOffset csr_IDELEG    = 8'h03;      // Interrupt Delegation
+RVCSRIndexOffset csr_IE        = 8'h04;      // Interrupt Enable
+RVCSRIndexOffset csr_TVEC      = 8'h05;      // Vector Table
+RVCSRIndexOffset csr_COUNTEREN = 8'h06;      // Counter Enable
+// Trap Handling
+RVCSRIndexOffset csr_SCRATCH   = 8'h40;      // Scratch Register
+RVCSRIndexOffset csr_EPC       = 8'h41;      // Exception Program Counter
+RVCSRIndexOffset csr_CAUSE     = 8'h42;      // Exception/Interrupt Cause
+RVCSRIndexOffset csr_TVAL      = 8'h43;      // Bad address or instruction
+RVCSRIndexOffset csr_IP        = 8'h44;      // Interrupt Pending
+
+//
 // RVCSROperator(s)
 //
 typedef RVFunc3 RVCSROperator;
