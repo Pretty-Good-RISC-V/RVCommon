@@ -143,7 +143,7 @@ typedef enum {
     PRIVILEGE_LEVEL_SUPERVISOR  = 2'b01,
     PRIVILEGE_LEVEL_HYPERVISOR  = 2'b10,
     PRIVILEGE_LEVEL_MACHINE     = 2'b11
-} RVPrivilegeLevel deriving(Bits, Eq);
+} RVPrivilegeLevel deriving(Bits, Eq, FShow);
 
 //
 // RVStoreOoperator(s)
