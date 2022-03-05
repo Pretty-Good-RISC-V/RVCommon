@@ -88,6 +88,12 @@ RVCSRIndex csr_PMPCFG0         = 12'h3A0;    // Physical memory protection confi
 RVCSRIndex csr_PMPCFG15        = 12'h3AF; 
 RVCSRIndex csr_PMPADDR0        = 12'h3B0;    // Physical memory protection address register (MRW)
 RVCSRIndex csr_PMPADDR63       = 12'h3EF;
+// Debug/Trace Registers
+RVCSRIndex csr_TSELECT         = 12'h7A0;    // Debug/Trace trigger register select (MRW)
+RVCSRIndex csr_TDATA1          = 12'h7A1;    // First Debug/Trace trigger data register (MRW)
+RVCSRIndex csr_TDATA2          = 12'h7A2;    // Second Debug/Trace trigger data register (MRW)
+RVCSRIndex csr_TDATA3          = 12'h7A3;    // Third Debug/Trace trigger data register (MRW)
+RVCSRIndex csr_MCONTEXT        = 12'h7A8;    // Machine-mode context register (MRW)
 // Machine Counters/Timers
 RVCSRIndex csr_MCYCLE          = 12'hB00;    // Cycle counter for RDCYCLE instruction (MRW)
 RVCSRIndex csr_MINSTRET        = 12'hB02;    // Machine instructions-retired counter (MRW)
@@ -117,6 +123,9 @@ RVCSRIndex csr_MIMPID          = 12'hF13;    // Implementation ID (MRO)
 RVCSRIndex csr_MHARTID         = 12'hF14;    // Hardware thread ID (MRO)
 RVCSRIndex csr_MCONFIGPTR      = 12'hF15;    // Pointer to configuration data structure (MRO)
 
+//
+// RVCSRIndexOffset
+//
 typedef Bit#(8) RVCSRIndexOffset;
 // Trap Setup
 RVCSRIndexOffset csr_STATUS    = 8'h00;      // Status
