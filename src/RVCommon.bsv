@@ -176,6 +176,11 @@ RVExceptionCause exception_RESERVED_14                    = 14;
 RVExceptionCause exception_STORE_PAGE_FAULT               = 15;
 
 //
+// RVGPRIndex
+//
+typedef Bit#(5) RVGPRIndex;
+
+//
 // RVISAExtension
 //
 typedef Bit#(26) RVISAExtension;
