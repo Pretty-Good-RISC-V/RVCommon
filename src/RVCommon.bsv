@@ -94,6 +94,11 @@ RVCSRIndex csr_TDATA1          = 12'h7A1;    // First Debug/Trace trigger data r
 RVCSRIndex csr_TDATA2          = 12'h7A2;    // Second Debug/Trace trigger data register (MRW)
 RVCSRIndex csr_TDATA3          = 12'h7A3;    // Third Debug/Trace trigger data register (MRW)
 RVCSRIndex csr_MCONTEXT        = 12'h7A8;    // Machine-mode context register (MRW)
+// Debug Mode Registers
+RVCSRIndex csr_DCSR            = 12'h7B0;    // Debug Control and Status
+RVCSRIndex csr_DPC             = 12'h7B1;    // Debug Program Counter
+RVCSRIndex csr_DSCRATCH0       = 12'h7B2;    // Debug Scratch Register 0
+RVCSRIndex csr_DSCRATCH1       = 12'h7B3;    // Debug Scratch Register 1
 // Machine Counters/Timers
 RVCSRIndex csr_MCYCLE          = 12'hB00;    // Cycle counter for RDCYCLE instruction (MRW)
 RVCSRIndex csr_MINSTRET        = 12'hB02;    // Machine instructions-retired counter (MRW)
