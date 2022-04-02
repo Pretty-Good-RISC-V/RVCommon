@@ -12,25 +12,30 @@ typedef Bit#(3) RVFunc3;  // Corresponds to the func3 instruction field.
 // RVALUOperator
 //
 typedef Bit#(10) RVALUOperator;
-// ALU Operators: These are decoded as the concat of func7 and func3
-RVALUOperator alu_ADD    = 10'b0000000_000;
-RVALUOperator alu_SLL    = 10'b0000000_001;
-RVALUOperator alu_SLT    = 10'b0000000_010;
-RVALUOperator alu_SLTU   = 10'b0000000_011;
-RVALUOperator alu_XOR    = 10'b0000000_100;
-RVALUOperator alu_SRL    = 10'b0000000_101;
-RVALUOperator alu_OR     = 10'b0000000_110;
-RVALUOperator alu_AND    = 10'b0000000_111;
-RVALUOperator alu_MUL    = 10'b0000001_000;
-RVALUOperator alu_MULH   = 10'b0000001_001;
-RVALUOperator alu_MULHSU = 10'b0000001_010;
-RVALUOperator alu_MULHU  = 10'b0000001_011;
-RVALUOperator alu_DIV    = 10'b0000001_100;
-RVALUOperator alu_DIVU   = 10'b0000001_101;
-RVALUOperator alu_REM    = 10'b0000001_110;
-RVALUOperator alu_REMU   = 10'b0000001_111;
-RVALUOperator alu_SUB    = 10'b0100000_000;
-RVALUOperator alu_SRA    = 10'b0100000_101;
+// ALU Operators: These are decoded as the concat of a single bit indicating if a 6432 operation and func7 and func3
+RVALUOperator alu_ADD    = 11'b0_0000000_000;
+RVALUOperator alu_SLL    = 11'b0_0000000_001;
+RVALUOperator alu_SLT    = 11'b0_0000000_010;
+RVALUOperator alu_SLTU   = 11'b0_0000000_011;
+RVALUOperator alu_XOR    = 11'b0_0000000_100;
+RVALUOperator alu_SRL    = 11'b0_0000000_101;
+RVALUOperator alu_OR     = 11'b0_0000000_110;
+RVALUOperator alu_AND    = 11'b0_0000000_111;
+RVALUOperator alu_MUL    = 11'b0_0000001_000;
+RVALUOperator alu_MULH   = 11'b0_0000001_001;
+RVALUOperator alu_MULHSU = 11'b0_0000001_010;
+RVALUOperator alu_MULHU  = 11'b0_0000001_011;
+RVALUOperator alu_DIV    = 11'b0_0000001_100;
+RVALUOperator alu_DIVU   = 11'b0_0000001_101;
+RVALUOperator alu_REM    = 11'b0_0000001_110;
+RVALUOperator alu_REMU   = 11'b0_0000001_111;
+RVALUOperator alu_SUB    = 11'b0_0100000_000;
+RVALUOperator alu_SRA    = 11'b0_0100000_101;
+RVALUOperator alu_ADD32  = 11'b1_0000000_000;
+RVALUOperator alu_SLL32  = 11'b1_0000000_001;
+RVALUOperator alu_SRL32  = 11'b1_0000000_101;
+RVALUOperator alu_SUB32  = 11'b1_0100000_000;
+RVALUOperator alu_SRA32  = 11'b1_0100000_101;
 
 //
 // RVBranchOperator(s)
