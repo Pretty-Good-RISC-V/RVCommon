@@ -11,7 +11,7 @@ typedef Bit#(3) RVFunc3;  // Corresponds to the func3 instruction field.
 //
 // RVALUOperator
 //
-typedef Bit#(10) RVALUOperator;
+typedef Bit#(11) RVALUOperator;
 // ALU Operators: These are decoded as the concat of a single bit indicating if a 6432 operation and func7 and func3
 RVALUOperator alu_ADD    = 11'b0_0000000_000;
 RVALUOperator alu_SLL    = 11'b0_0000000_001;
