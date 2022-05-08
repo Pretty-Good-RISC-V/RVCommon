@@ -252,6 +252,22 @@ RVLoadOperator load_LWU             = 3'b110;
 RVLoadOperator load_UNSUPPORTED_111 = 3'b111;
 
 //
+// RVOpcode
+//
+typedef Bit#(7) RVOpcode;
+RVOpcode opcode_AUIPC       = 7'b0010111;
+RVOpcode opcode_BRANCH      = 7'b1100011;
+RVOpcode opcode_JAL         = 7'b1101111;
+RVOpcode opcode_JALR        = 7'b1100111;
+RVOpcode opcode_LOAD        = 7'b0000011;
+RVOpcode opcode_LUI         = 7'b0110111;
+RVOpcode opcode_MISC_MEM    = 7'b0001111;
+RVOpcode opcode_OP          = 7'b0110011;
+RVOpcode opcode_OP_IMM      = 7'b0010011;
+RVOpcode opcode_STORE       = 7'b0100011;
+RVOpcode opcode_SYSTEM      = 7'b1110011;
+
+//
 // RVPrivilegeLevel
 //
 typedef Bit#(2) RVPrivilegeLevel;
